@@ -62,4 +62,14 @@ describe "Projects" do
       response.status.should be(200)
     end
   end
+  
+  describe "DELETE /projects/id" do
+    it "successfully deletes a project" do
+      @project = FactoryGirl.build(:project)
+      @project.save
+      
+      delete project_url(@project)
+      response.status.should be(302)
+    end
+  end
 end
