@@ -42,7 +42,7 @@ describe "Projects" do
     it "successfully loads a project edit page" do
       @project = FactoryGirl.build(:project)
       @project.save
-      get project_edit_path(@project)
+      get edit_project_path(@project)
       response.status.should be(200)
     end
   end
@@ -59,7 +59,7 @@ describe "Projects" do
       @project = FactoryGirl.build(:project)
       @project.save
       put project_url(@project), project: { name: "", manager: "John Doe", organization: "CWS" }
-      resonse.status.should be(200)
+      response.status.should be(200)
     end
   end
 end
