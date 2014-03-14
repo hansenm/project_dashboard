@@ -22,7 +22,12 @@ describe "Projects" do
   describe "POST /projects" do
     it "successfully add a new project" do
       post projects_url, project: { name: "My Project", manager: "John Doe", organization: "CWS" }
-      expect(response.status).to eq(201) # "Created"
+      expect(response.status).to eq(302) # "Redirected if valid project"
+    end
+    
+    it "doesn't redirect an invalid project" do
+      post projects_url, project: { name: "My Project" }
+      expect(response.status).to eq(200)
     end
   end
 end
