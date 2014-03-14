@@ -3,7 +3,7 @@
   <i class="icon icon-edit"> </i> Edit
 <% end %>
 
-<%= link_to project_path(@project), method: "Delete" do %>
+<%= link_to project_path(@project), method: "Delete", data: { confirm: "Are you sure you want to delete this project?" } do %>
   <i class="icon icon-trash"> </i> Delete
 <% end %>
 
