@@ -29,12 +29,37 @@ describe "Projects" do
   describe "POST /projects" do
     it "successfully add a new project" do
       post projects_url, project: { name: "My Project", manager: "John Doe", organization: "CWS" }
-      expect(response.status).to eq(302) # "Redirected if valid project"
+      response.status.should be(302) # "Redirected if valid project"
     end
     
     it "doesn't redirect an invalid project" do
       post projects_url, project: { name: "My Project" }
-      expect(response.status).to eq(200)
+      response.status.should be(200)
+    end
+  end
+  
+  describe "Get /projects/id/edit" do
+    it "successfully loads a project edit page" do
+      @project = FactoryGirl.build(:project)
+      @project.save
+      get project_edit_path(@project)
+      response.status.should be(200)
+    end
+  end
+  
+  describe "PUT /projects/id" do
+    it "successfully edits a project" do
+      @project = FactoryGirl.build(:project)
+      @project.save
+      put project_url(@project), project: { name: "My Project", manager: "John Doe", organization: "CWS" }
+      response.status.should be(302)
+    end
+    
+    it "doesn't redirect an invalid project" do
+      @project = FactoryGirl.build(:project)
+      @project.save
+      put project_url(@project), project: { name: "", manager: "John Doe", organization: "CWS" }
+      resonse.status.should be(200)
     end
   end
 end

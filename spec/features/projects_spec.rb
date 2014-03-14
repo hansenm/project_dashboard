@@ -29,6 +29,21 @@ feature "Project Management" do
     
     expect(page).to have_text("Test Project")
   end
+  
+  scenario "editing an existing project" do
+    # Create a project
+    @project = FactoryGirl.build(:project)
+    @project.save
+    
+    # Visit the project show page, click the edit link
+    visit project_path(@project)
+    click_link "Edit"
+    
+    # Give it a new name and save
+    fill_in "Name", with: "Testing"
+    click_button "Save"
+    expect(page).to have_text("Testing")    
+  end
 end
     
 
