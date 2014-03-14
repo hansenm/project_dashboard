@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20140314154708) do
     t.string   "name"
     t.string   "manager"
     t.string   "organization"
+    t.boolean  "is_active"
+    t.boolean  "is_promoted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
