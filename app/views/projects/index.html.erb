@@ -2,7 +2,7 @@
 
 <%= link_to "Add a New Project", new_project_path %>
 
-<table class="striped">
+<table class="table table-striped">
 
   <thead>
     <tr><th>Name</th><th>Manager</th><th>Organization</th></tr>
@@ -11,7 +11,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.name %></td>
+        <td><%= link_to project.name, project %></td>
         <td><%= project.manager %></td>
         <td><%= project.organization %></td>
       </tr>
