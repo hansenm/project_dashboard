@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :load_project, :only => [:show, :edit, :update, :destroy]
   
   def index
+    @projects = Project.order(:name)
   end
 
   def new

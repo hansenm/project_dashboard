@@ -1,3 +1,21 @@
 <h1>Projects</h1>
 
 <%= link_to "Add a New Project", new_project_path %>
+
+<table class="striped">
+
+  <thead>
+    <tr><th>Name</th><th>Manager</th><th>Organization</th></tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.manager %></td>
+        <td><%= project.organization %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
