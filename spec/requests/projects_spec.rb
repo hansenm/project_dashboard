@@ -19,6 +19,13 @@ describe "Projects" do
     end
   end
   
+  describe "Get /projects/new" do
+    it "successfully loads a new project page" do
+      get new_project_path
+      response.status.should be(200)
+    end
+  end
+  
   describe "POST /projects" do
     it "successfully add a new project" do
       post projects_url, project: { name: "My Project", manager: "John Doe", organization: "CWS" }
