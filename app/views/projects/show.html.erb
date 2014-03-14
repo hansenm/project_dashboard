@@ -1,7 +1,14 @@
 <h1><%= @project.name %></h1>
-<%= link_to "Edit", edit_project_path(@project) %> | 
-<%= link_to "Delete", project_path(@project), method: "Delete" %>
+<%= link_to edit_project_path(@project) do %>
+  <i class="icon icon-edit"> </i> Edit
+<% end %>
 
+<%= link_to project_path(@project), method: "Delete" do %>
+  <i class="icon icon-trash"> </i> Delete
+<% end %>
 
-<div>Project Manager: <%= @project.manager %></div>
-<div>Organization: <%= @project.organization %></div>
+<br /><br />
+<div class="well">
+  <div>Project Manager: <%= @project.manager %></div>
+  <div>Organization: <%= @project.organization %></div>
+</div>
