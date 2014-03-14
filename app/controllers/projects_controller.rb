@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :load_project, :only => [:show, :edit, :update]
+  before_filter :load_project, :only => [:show, :edit, :update, :destroy]
   
   def index
   end
@@ -34,6 +34,11 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
   
+  def destroy
+    @project.destroy
+    redirect_to projects_path
+  end
+  
   private
     
     # Create project parameters white list
@@ -42,6 +47,6 @@ class ProjectsController < ApplicationController
     end
     
     def load_project
-      @project = Project.find(params[:id])
+      @project = Project.find(params[:id]) || raise("not found") # not_found
     end
 end

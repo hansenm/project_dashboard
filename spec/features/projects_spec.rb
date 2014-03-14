@@ -44,6 +44,20 @@ feature "Project Management" do
     click_button "Save"
     expect(page).to have_text("Testing")    
   end
+
+  scenario "delete an existing project" do
+    # Create a project
+    @project = FactoryGirl.build(:project)
+    @project.save
+    
+    # Visit the project show page, click the delete link
+    visit project_path(@project)
+    click_link "Delete"
+    
+    # Visit the project show page again, which should break
+    visit project_path(@project)
+    page.status_code.should == 404
+  end
 end
     
 
