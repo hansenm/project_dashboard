@@ -18,6 +18,19 @@ describe "Projects" do
 end
 
 feature "Project Management" do
+  scenario "index should list all projects" do
+    # Create a project
+    @project = FactoryGirl.build(:project)
+    @project.save
+    
+    @project = Project.new(name: "Test", manager: "John", organization: "ECS")
+    @project.save
+    
+    visit projects_path
+    expect(page).to have_text("MyString")
+    expect(page).to have_text("Test")
+  end
+  
   scenario "creating a new project" do
     visit projects_path
     click_link "New Project"
