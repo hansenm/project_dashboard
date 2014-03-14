@@ -2,5 +2,7 @@
   <%= f.input :name %>
   <%= f.input :manager %>
   <%= f.input :organization %>
+  <%= f.input :is_active, label: "Active" %>
+  <%= f.input :is_promoted, label: "Promoted", hint: "This will publish to the main list of projects" %>
   <%= f.button :submit, "Save" %>
 <% end %>

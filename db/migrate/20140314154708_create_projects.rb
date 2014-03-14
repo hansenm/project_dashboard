@@ -4,7 +4,8 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.string :manager
       t.string :organization
-
+      t.boolean :is_active
+      t.boolean :is_promoted
       t.timestamps
     end
   end
