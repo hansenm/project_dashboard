@@ -56,4 +56,4 @@ group :test do
   gem 'capybara'
 end
 
-gem 'bootstrap-sass'
+gem 'simple_form'
