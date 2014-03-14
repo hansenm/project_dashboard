@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+  
+  before_filter :load_project, :only => [:show, :edit, :update]
+  
   def index
   end
 
@@ -16,6 +19,15 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    
+  end
+  
+  def update
+    if @project.update_attributes(project_params)
+      redirect_to @project
+    else
+      render :edit
+    end
   end
 
   def show
@@ -27,5 +39,9 @@ class ProjectsController < ApplicationController
     # Create project parameters white list
     def project_params
       params.require(:project).permit(:name, :manager, :organization)
+    end
+    
+    def load_project
+      @project = Project.find(params[:id])
     end
 end
