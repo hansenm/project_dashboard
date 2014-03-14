@@ -5,5 +5,7 @@ FactoryGirl.define do
     name "MyString"
     manager "MyString"
     organization "MyString"
+    is_active true
+    is_promoted true
   end
 end

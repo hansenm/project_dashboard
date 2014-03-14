@@ -5,6 +5,11 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.order(:name)
   end
+  
+  def promoted
+    @projects = Project.where(is_promoted: true, is_active: true).order(:name)
+    render :index
+  end
 
   def new
     @project = Project.new
@@ -44,7 +49,7 @@ class ProjectsController < ApplicationController
     
     # Create project parameters white list
     def project_params
-      params.require(:project).permit(:name, :manager, :organization)
+      params.require(:project).permit(:name, :manager, :organization, :is_active, :is_promoted)
     end
     
     def load_project

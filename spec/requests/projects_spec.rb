@@ -10,6 +10,13 @@ describe "Projects" do
     end
   end
   
+  describe "Get /projects/promoted" do
+    it "loads the promoted projects page" do
+      get promoted_projects_path
+      response.status.should be(200)
+    end
+  end
+  
   describe "GET /projects/id" do
     it "successfully loads the project show page" do
       @project = FactoryGirl.build(:project)
