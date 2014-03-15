@@ -1,2 +1,11 @@
-<h1>StatusReports#show</h1>
-<p>Find me in app/views/status_reports/show.html.erb</p>
+<h1><%= @status_report.project.name %> Status Report</h1>
+
+<%= link_to edit_project_status_report_path(@status_report.project, @status_report) do %>
+  <i class="icon icon-edit"> </i> Edit
+<% end %>
+
+<%= link_to project_status_report_path(@status_report.project, @status_report), method: "Delete", data: { confirm: "Are you sure you want to delete this status report?" } do %>
+  <i class="icon icon-trash"> </i> Delete
+<% end %>
+
+<div class="well"><%= @status_report.summary %></div>

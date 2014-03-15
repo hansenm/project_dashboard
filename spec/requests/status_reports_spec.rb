@@ -23,7 +23,7 @@ describe "StatusReports" do
     it "doesn't redirect an invalid status report" do
       @status_report = FactoryGirl.build(:status_report)
       @status_report.save
-      post project_status_reports_path(@project.id), status_report: { summary: "", overall: "test"}
+      post project_status_reports_path(@status_report.project), status_report: { summary: "", overall: "test"}
       response.status.should be(200)
     end
   end

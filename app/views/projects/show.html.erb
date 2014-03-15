@@ -12,3 +12,5 @@
   <div>Project Manager: <%= @project.manager %></div>
   <div>Organization: <%= @project.organization %></div>
 </div>
+
+<%= link_to "New Status Report", new_project_status_report_path(@project) %>
