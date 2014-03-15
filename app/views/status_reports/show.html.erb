@@ -1,4 +1,4 @@
-<h1><%= @status_report.project.name %> Status Report</h1>
+<h1><%= link_to @status_report.project.name, project_path(@status_report.project) %> Status Report</h1>
 
 <%= link_to edit_project_status_report_path(@status_report.project, @status_report) do %>
   <i class="icon icon-edit"> </i> Edit
@@ -8,4 +8,4 @@
   <i class="icon icon-trash"> </i> Delete
 <% end %>
 
-<div class="well"><%= @status_report.summary %></div>
+<%= render partial: 'detail', locals: { status_report: @status_report }%>

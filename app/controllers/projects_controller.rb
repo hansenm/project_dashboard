@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
   
   def promoted
-    @projects = Project.where(is_promoted: true, is_active: true).order(:name)
+    @projects = Project.where(is_promoted: true, is_active: true).includes(:current_status_report).order(:name)
     render :index
   end
 

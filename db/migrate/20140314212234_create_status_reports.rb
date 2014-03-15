@@ -6,7 +6,7 @@ class CreateStatusReports < ActiveRecord::Migration
       t.string :scope
       t.string :schedule
       t.string :resources
-      t.datetime :reported_at
+      t.date :reported_on
       t.references :project, index: true
 
       t.timestamps

@@ -7,7 +7,7 @@ FactoryGirl.define do
     scope "MyString"
     schedule "MyString"
     resources "MyString"
-    reported_at "2014-03-14 14:22:34"
+    reported_on "2014-03-14"
     project
   end
 end

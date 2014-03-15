@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140314212234) do
     t.string   "scope"
     t.string   "schedule"
     t.string   "resources"
-    t.datetime "reported_at"
+    t.date     "reported_on"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
