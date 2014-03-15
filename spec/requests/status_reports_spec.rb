@@ -16,7 +16,11 @@ describe "StatusReports" do
       @project = FactoryGirl.build(:project)
       @project.save
       
-      post project_status_reports_path(@project.id), status_report: { summary: "Test", overall: "test"}
+      post project_status_reports_path(@project.id), status_report: { "summary" => "Test", 
+                                                                      "overall" => "test", 
+                                                                      "reported_on(1i)" => "2014", 
+                                                                      "reported_on(2i)" => "1", 
+                                                                      "reported_on(3i)" => "15"}
       response.status.should be(302)
     end
     

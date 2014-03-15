@@ -1,6 +1,9 @@
 <%= simple_form_for([@project, @status_report], html: {class: 'form-horizontal' }) do |f| %>
   <%= f.input :reported_on %>
   <%= f.input :summary %>
-  <%= f.input :overall %>
+  <%= f.input :overall, as: :radio_buttons, :item_wrapper_class => 'inline', collection: [ :green, :yellow, :red ] %>
+  <%= f.input :scope, as: :radio_buttons, :item_wrapper_class => 'inline', collection: [ :green, :yellow, :red ] %>
+  <%= f.input :schedule, as: :radio_buttons, :item_wrapper_class => 'inline', collection: [ :green, :yellow, :red ] %>
+  <%= f.input :resources, as: :radio_buttons, :item_wrapper_class => 'inline', collection: [ :green, :yellow, :red ] %>
   <%= f.button :submit, "Save" %>
 <% end %>

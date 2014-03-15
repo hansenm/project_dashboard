@@ -10,7 +10,10 @@ feature "Status Report Management" do
     click_link "New Status Report"
 
     fill_in "Summary", with: "Status Report Summary"
-    fill_in "Overall", with: "Green"
+    choose("status_report_overall_green")
+    select('2014', :from => 'status_report_reported_on_1i')
+    select('February', :from => 'status_report_reported_on_2i')
+    select('14', :from => 'status_report_reported_on_3i')
     click_button "Save"
 
     expect(page).to have_text("Status Report Summary")
