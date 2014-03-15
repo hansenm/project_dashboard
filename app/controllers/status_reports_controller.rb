@@ -1,5 +1,5 @@
 class StatusReportsController < ApplicationController
-  def add
+  def new
   end
 
   def edit
