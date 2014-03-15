@@ -4,6 +4,7 @@ Projects::Application.routes.draw do
     collection do
       get 'promoted'
     end
+    resources :status_reports
   end
   root 'projects#promoted'
   
