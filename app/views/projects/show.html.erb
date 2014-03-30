@@ -32,7 +32,7 @@
     <% @project.status_reports.each do |status_report| %>
       <tr>
         <td><%= link_to status_report.reported_on, project_status_report_path(@project, status_report) %></td>
-        <td><%= status_report.overall %></td>
+        <td><span class="status <%= overall_status_indicator(status_report.overall) %>"></td>
         <td><%= status_report.summary %></td>
       </tr>
     <% end %>

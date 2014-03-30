@@ -6,9 +6,8 @@ class ProjectsController < ApplicationController
     @projects = Project.order(:name)
   end
   
-  def promoted
+  def dashboard
     @projects = Project.where(is_promoted: true, is_active: true).includes(:current_status_report).order(:name)
-    render :index
   end
 
   def new

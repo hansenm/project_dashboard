@@ -1,1 +1,8 @@
-<div class="well"><%= status_report.summary %></div>
+<div class="well <%= overall_status_indicator(status_report.overall) %>">
+  <div>Reported On: <%= status_report.reported_on %></div>
+  <div>Overall Status: <%= status_report.overall %></div>
+  <div>Summary: <%= status_report.summary %></div>
+  <div>Schedule: <%= status_report.schedule %></div>
+  <div>Resources: <%= status_report.resources %></div>
+  <div>Scope: <%= status_report.scope %></div>
+</div>

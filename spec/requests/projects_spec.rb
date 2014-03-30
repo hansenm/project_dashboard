@@ -10,9 +10,9 @@ describe "Projects" do
     end
   end
   
-  describe "Get /projects/promoted" do
-    it "loads the promoted projects page" do
-      get promoted_projects_path
+  describe "Get /projects/dashboard" do
+    it "loads the project dashboard page" do
+      get dashboard_projects_path
       response.status.should be(200)
     end
   end

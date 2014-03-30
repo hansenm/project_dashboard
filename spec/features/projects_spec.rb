@@ -31,7 +31,7 @@ feature "Project Management" do
     expect(page).to have_text("Test")
   end
   
-  scenario "promoted should list only active, promoted projects" do
+  scenario "dashboard should list only active, promoted projects" do
     # Create a project
     @project = FactoryGirl.build(:project)
     @project.save
@@ -42,7 +42,7 @@ feature "Project Management" do
     @project = Project.new(name: "Testing", manager: "John", organization: "ECS", is_active: false, is_promoted: true)
     @project.save
     
-    visit promoted_projects_path
+    visit dashboard_projects_path
     expect(page).to have_text("MyString")
     expect(page).to_not have_text("Test")
     expect(page).to_not have_text("Testing")
