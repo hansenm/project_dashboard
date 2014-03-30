@@ -1,8 +1,13 @@
-<div class="well <%= overall_status_indicator(status_report.overall) %>">
-  <div>Reported On: <%= status_report.reported_on %></div>
-  <div>Overall Status: <%= status_report.overall %></div>
-  <div>Summary: <%= status_report.summary %></div>
-  <div>Schedule: <%= status_report.schedule %></div>
-  <div>Resources: <%= status_report.resources %></div>
-  <div>Scope: <%= status_report.scope %></div>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr><th></th><th></th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Overall Status: </td><td><%= status_indicator(status_report.overall) %></td></tr>
+    <tr><td>Reported On: </td><td><%= status_report.reported_on %></td></tr>
+    <tr><td>Summary: </td><td><%= status_report.summary %></td></tr>
+    <tr><td>Schedule: </td><td><%= status_indicator(status_report.schedule) %></td></tr>
+    <tr><td>Resources: </td><td><%= status_indicator(status_report.resources) %></td></tr>
+    <tr><td>Scope: </td><td><%= status_indicator(status_report.scope) %></td></tr>
+  </tbody>
+</table>

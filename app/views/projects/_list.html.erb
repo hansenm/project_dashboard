@@ -7,7 +7,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><span class="status <%= overall_status_indicator(project.overall) %>"></span></td>
+        <td><%= status_indicator(project.overall) %></td>
         <td><%= link_to project.name, project %></td>
         <td><%= project.manager %></td>
         <td><%= project.organization %></td>

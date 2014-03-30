@@ -7,21 +7,22 @@
   <i class="icon icon-trash"> </i> Delete
 <% end %>
 
+<%= link_to new_project_status_report_path(@project) do %>
+  <i class="icon icon-plus"> </i> Create Status Report
+<% end %>
+
 <br /><br />
 <div class="well">
   <div>Project Manager: <%= @project.manager %></div>
   <div>Organization: <%= @project.organization %></div>
 </div>
 
-<%= link_to new_project_status_report_path(@project) do %>
-  <i class="icon icon-plus"> </i> New Status Report
-<% end %>
-
 <% unless @project.current_status_report.nil? %>
   <h2>Current Status Report</h2>
   <%= render partial: 'status_reports/detail', locals: { status_report: @project.current_status_report }%>
 <% end %>
 
+<h2>Status Reports</h2>
 <table class="table table-striped">
 
   <thead>
@@ -32,7 +33,7 @@
     <% @project.status_reports.each do |status_report| %>
       <tr>
         <td><%= link_to status_report.reported_on, project_status_report_path(@project, status_report) %></td>
-        <td><span class="status <%= overall_status_indicator(status_report.overall) %>"></td>
+        <td><%= status_indicator(status_report.overall) %></td>
         <td><%= status_report.summary %></td>
       </tr>
     <% end %>

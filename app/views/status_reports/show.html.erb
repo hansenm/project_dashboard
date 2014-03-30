@@ -1,4 +1,4 @@
-<h1><%= link_to @status_report.project.name, project_path(@status_report.project) %> Status Report</h1>
+<h1>Status Report for <%= link_to @status_report.project.name, project_path(@status_report.project) %></h1>
 
 <%= link_to edit_project_status_report_path(@status_report.project, @status_report) do %>
   <i class="icon icon-edit"> </i> Edit
