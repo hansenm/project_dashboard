@@ -7,7 +7,7 @@ feature "Status Report Management" do
     @project.save
     
     visit project_path(@project)
-    click_link "New Status Report"
+    click_link "Create Status Report"
 
     fill_in "Summary", with: "Status Report Summary"
     choose("status_report_overall_green")
