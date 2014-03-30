@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   has_one :current_status_report, class_name: 'StatusReport', foreign_key: :project_id, order: 'reported_on DESC'
   
   delegate :overall, to: :current_status_report, allow_nil: true
+  delegate :reported_on, to: :current_status_report, allow_nil: true
   
 
   # Add validations
