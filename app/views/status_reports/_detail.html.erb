@@ -4,7 +4,7 @@
   </thead>
   <tbody>
     <tr><td>Overall Status: </td><td><%= status_indicator(status_report.overall) %></td></tr>
-    <tr><td>Reported On: </td><td><%= status_report.reported_on %></td></tr>
+    <tr><td>Reported On: </td><td><%= I18n.l status_report.reported_on %></td></tr>
     <tr><td>Summary: </td><td><%= status_report.summary %></td></tr>
     <tr><td>Schedule: </td><td><%= status_indicator(status_report.schedule) %></td></tr>
     <tr><td>Resources: </td><td><%= status_indicator(status_report.resources) %></td></tr>

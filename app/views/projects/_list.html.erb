@@ -1,7 +1,7 @@
 <table class="table table-striped">
 
   <thead>
-    <tr><th>Status</th><th>Project</th><th>Manager</th><th>Organization</th><th>Summary</th></tr>
+    <tr><th>Status</th><th>Project</th><th>Manager</th><th>Organization</th><th>Updated</th><th>Summary</th></tr>
   </thead>
 
   <tbody>
@@ -11,6 +11,7 @@
         <td><%= link_to project.name, project %></td>
         <td><%= project.manager %></td>
         <td><%= project.organization %></td>
+        <td><%= I18n.l project.reported_on unless project.reported_on.nil? %></td>
         <td><%= project.current_status_report.summary unless project.current_status_report.nil? %></td>
       </tr>
     <% end %>
