@@ -46,6 +46,6 @@ class StatusReportsController < ApplicationController
     end
   
     def status_report_params
-      params.require(:status_report).permit(:summary, :overall, :scope, :schedule, :resources, :reported_on, :project_id)
+      params.require(:status_report).permit(:summary, :overall, :scope, :schedule, :resources, :reported_on, :project_id, :accomplishments)
     end
 end
